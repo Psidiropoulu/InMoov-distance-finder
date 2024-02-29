@@ -3,6 +3,7 @@ from imutils import paths
 import numpy as np
 import imutils
 import cv2
+
 def find_marker(image):
 	# convert the image to grayscale, blur it, and detect edges
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -19,6 +20,7 @@ def find_marker(image):
 def distance_to_camera(knownWidth, focalLength, perWidth):
 	# compute and return the distance from the maker to the camera
 	return (knownWidth * focalLength) / perWidth
+
 
 # initialize the known distance from the camera to the object, which
 # in this case is 24 inches
@@ -49,5 +51,3 @@ for imagePath in sorted(paths.list_images("images")):
 		2.0, (0, 255, 0), 3)
 	cv2.imshow("image", image)
 	cv2.waitKey(0)
- 
- 
